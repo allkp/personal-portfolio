@@ -36,6 +36,11 @@ import {
 import "./App.css";
 
 const iconMap = { Server, Code2, Sparkles, ShieldCheck, BriefcaseBusiness };
+
+// Prefix public asset paths with Vite's configured base path.
+const assetUrl = (path) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 const terminalLines = [
   ["proxy", "JWT verified", "role check passed · CORS ok"],
   ["gateway", "REST request", "SOAP envelope built"],
@@ -45,6 +50,7 @@ const terminalLines = [
   ["review", "commit event", "critique queued"],
   ["rag", "pgvector search", "context loaded"],
 ];
+
 const themes = [
   { id: "light", label: "Light", Icon: Sun },
   { id: "terminal", label: "Terminal", Icon: Terminal },
@@ -63,28 +69,33 @@ function App() {
   });
   const [logIndex, setLogIndex] = useState(0);
   const [staticTerminal, setStaticTerminal] = useState(false);
+
   const logHistory = staticTerminal
     ? terminalLines
     : Array.from(
         { length: 5 },
         (_, index) => terminalLines[(logIndex + index) % terminalLines.length],
       );
+
   const filters = ["All", "Frontend", "Backend", "AI"];
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
+
     const themeMeta = document.querySelector('meta[name="theme-color"]');
-    if (themeMeta)
+    if (themeMeta) {
       themeMeta.content =
         theme === "light"
           ? "#f6f7f9"
           : theme === "terminal"
             ? "#070b08"
             : "#0a1628";
+    }
+
     try {
       localStorage.setItem("portfolio-theme", theme);
     } catch {
-      /* Storage can be disabled by the browser. */
+      // Browser storage can be disabled.
     }
   }, [theme]);
 
@@ -93,16 +104,21 @@ function App() {
       setStaticTerminal(true);
       return undefined;
     }
+
     const interval = window.setInterval(
       () => setLogIndex((index) => index + 1),
       1700,
     );
+
     return () => window.clearInterval(interval);
   }, []);
+
   const visibleProjects = projects.filter((project) => {
     if (projectFilter === "All") return true;
+
     const text =
       `${project.title} ${project.subtitle} ${project.description} ${project.technologies.join(" ")}`.toLowerCase();
+
     return projectFilter === "Frontend"
       ? /react|frontend|portal|ui/.test(text)
       : projectFilter === "Backend"
@@ -115,6 +131,7 @@ function App() {
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
+
       <header className="site-header">
         <a className="brand" href="#landing" aria-label="Lokesh Adireddi home">
           <span className="brand-mark">{personalInfo.logoInitials}</span>
@@ -122,6 +139,7 @@ function App() {
             Lokesh Adireddi<span className="brand-dot">.</span>
           </span>
         </a>
+
         <button
           className="menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -130,6 +148,7 @@ function App() {
         >
           {menuOpen ? <X /> : <Menu />}
         </button>
+
         <nav
           className={menuOpen ? "nav-links open" : "nav-links"}
           aria-label="Main navigation"
@@ -144,12 +163,9 @@ function App() {
             </a>
           ))}
         </nav>
+
         <div className="header-tools">
-          <div
-            className="theme-switcher"
-            role="group"
-            aria-label="Colour theme"
-          >
+          <div className="theme-switcher" role="group" aria-label="Colour theme">
             {themes.map(({ id, label, Icon }) => (
               <button
                 key={id}
@@ -163,6 +179,7 @@ function App() {
               </button>
             ))}
           </div>
+
           <a className="header-contact" href="#contact">
             Let’s talk <ArrowUpRight size={16} />
           </a>
@@ -186,19 +203,21 @@ function App() {
             </p>
             <p className="hero-description">{landingIntro}</p>
             <p className="hero-quote">“Legacy systems, modern interfaces.”</p>
+
             <div className="hero-actions">
               <a className="button button-primary" href="#projects">
                 Explore my work <ArrowDown size={17} />
               </a>
               <a
                 className="button button-quiet"
-                href={personalInfo.resumeUrl}
+                href={assetUrl(personalInfo.resumeUrl)}
                 target="_blank"
                 rel="noreferrer"
               >
                 <Download size={17} /> Download résumé
               </a>
             </div>
+
             <div className="hero-socials">
               <a
                 href={personalInfo.github}
@@ -224,13 +243,14 @@ function App() {
               </span>
             </div>
           </div>
+
           <div className="hero-visual">
             <div className="orbit orbit-one" />
             <div className="orbit orbit-two" />
             <div className="portrait-frame">
               <img
-                src="/images/profile/head-shot-img.jpg"
-                alt="Portrait of Lokesh Adireddi"
+                src={assetUrl("/images/profile/head-shot-img.jpg")}
+                alt="Portrait of Lokesh Adireddy"
               />
             </div>
             <div className="hero-chip chip-top">
@@ -261,6 +281,7 @@ function App() {
               </pre>
             </div>
           </div>
+
           <a className="scroll-cue" href="#about">
             Scroll to explore
           </a>
@@ -295,7 +316,7 @@ function App() {
                 <strong>
                   6<span>+</span>
                 </strong>
-                <p>Enterprise & AI projects</p>
+                <p>Enterprise &amp; AI projects</p>
               </div>
               <div className="stat-card">
                 <strong>
@@ -360,7 +381,7 @@ function App() {
           <div className="section-heading">
             <p className="eyebrow">Learning foundation</p>
             <h2>
-              Education & <span>growth.</span>
+              Education &amp; <span>growth.</span>
             </h2>
           </div>
           <div className="education-grid">
@@ -438,7 +459,7 @@ function App() {
           <div className="section-heading">
             <p className="eyebrow">My toolkit</p>
             <h2>
-              Skills & <span>technology.</span>
+              Skills &amp; <span>technology.</span>
             </h2>
             <p className="section-lede">
               A practical stack for building secure, polished, production-ready
@@ -479,7 +500,7 @@ function App() {
           <div className="section-heading">
             <p className="eyebrow">Beyond the day job</p>
             <h2>
-              Milestones & <span>recognition.</span>
+              Milestones &amp; <span>recognition.</span>
             </h2>
           </div>
           <div className="achievement-grid">
@@ -488,7 +509,7 @@ function App() {
                 {item.image ? (
                   <img
                     className="achievement-image"
-                    src={item.image}
+                    src={assetUrl(item.image)}
                     alt="Ball badminton award certificate"
                     loading="lazy"
                   />
@@ -509,12 +530,12 @@ function App() {
                       {item.gallery.map((src) => (
                         <a
                           key={src}
-                          href={src}
+                          href={assetUrl(src)}
                           target="_blank"
                           rel="noreferrer"
                         >
                           <img
-                            src={src}
+                            src={assetUrl(src)}
                             alt="Additional ball badminton award certificate"
                             loading="lazy"
                           />
@@ -561,6 +582,7 @@ function App() {
           </div>
         </section>
       </main>
+
       <footer className="site-footer">
         <a className="brand" href="#landing">
           <span className="brand-mark">AL</span>
