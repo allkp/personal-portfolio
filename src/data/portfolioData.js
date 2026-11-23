@@ -4,7 +4,7 @@
 
 export const personalInfo = {
   name: 'Lokesh Adireddi',
-  logoInitials: 'AL',
+  logoInitials: 'LA',
   designations: [
     'Java Full Stack Developer',
     'React & Spring Boot Engineer',
@@ -18,7 +18,7 @@ export const personalInfo = {
   resumeUrl: '/images/resume/Lokesh_Adireddy.pdf',
 };
 
-export const landingIntro = `I am a Java Full Stack Developer with nearly 2 years of experience building scalable, enterprise-grade web applications and AI-driven developer tools. Specializing in Java, Spring Boot, React, and TypeScript, I bridge modern frontend interfaces with resilient backend architectures and legacy SOAP-to-REST integrations. Currently at XIUS Corp, my focus spans cloud-native Kubernetes deployments and local Generative AI pipelines using Spring AI, LangChain4j, and pgvector. Explore my work below to see how I engineer secure, high-performance software solutions.`;
+export const landingIntro = `I am a Java Full Stack Developer with more than 2 years of experience building scalable, enterprise-grade web applications and AI-driven developer tools. Specializing in Java, Spring Boot, React, and TypeScript, I bridge modern frontend interfaces with resilient backend architectures and legacy SOAP-to-REST integrations. Currently at XIUS Corp, my focus spans cloud-native Kubernetes deployments and local Generative AI pipelines using Spring AI, LangChain4j, and pgvector. Explore my work below to see how I engineer secure, high-performance software solutions.`;
 
 export const aboutSummary = `Currently working as a Java Full Stack Developer at XIUS Corp Pvt. Ltd. in Hyderabad, I design and deliver end-to-end telecom self-service and corporate portals. My core technical expertise covers Spring Boot, Spring Security (JWT/RBAC), React, TypeScript, and Redux Toolkit, alongside Docker and Kubernetes for container orchestration. Beyond traditional full-stack engineering, I actively build Retrieval-Augmented Generation (RAG) pipelines and autonomous AI code-review tools powered by Spring AI, LangChain4j, Ollama, and PostgreSQL (pgvector). Holding a B.Tech degree from JNTUK, I bring an analytical, problem-solving mindset to architecting clean, maintainable systems that reduce development friction and scale reliably.`;
 
@@ -58,6 +58,20 @@ export const education = [
       'Proficient in English and Telugu for cross-functional technical collaboration.',
     ],
   },
+  {
+    qualification: 'Diploma in Mechanical Engineering',
+    institution: 'Government Polytechnic College, Vijayawada',
+    duration: '2017 – 2020',
+    mode: '75% · Mechanical Engineering',
+    highlights: ['Completed a Diploma in Mechanical Engineering at Government Polytechnic College, Vijayawada.'],
+  },
+  {
+    qualification: 'Secondary Education (SSC)',
+    institution: 'ZPHS Kasipuram',
+    duration: '2012 – 2017',
+    mode: '80% · SSC',
+    highlights: ['Completed secondary education at ZPHS Kasipuram, Devarapalli - 531030.'],
+  },
 ];
 
 export const projects = [
@@ -93,7 +107,7 @@ export const projects = [
   },
   {
     id: 3,
-    title: 'MspApiGW',
+    title: 'MspApiAuthGW',
     subtitle: 'Middleware API Gateway',
     type: 'Backend Middleware & Integration',
     duration: '2025 – 2026',

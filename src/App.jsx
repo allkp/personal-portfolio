@@ -214,7 +214,7 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Download size={17} /> Download résumé
+                <Download size={17} /> Download resume
               </a>
             </div>
 
@@ -249,7 +249,7 @@ function App() {
             <div className="orbit orbit-two" />
             <div className="portrait-frame">
               <img
-                src={assetUrl("/images/profile/head-shot-img.jpg")}
+                src={assetUrl("/images/profile/head-shot-hills-natural.png")}
                 alt="Portrait of Lokesh Adireddy"
               />
             </div>
@@ -258,6 +258,9 @@ function App() {
             </div>
             <div className="hero-chip chip-bottom">
               <Sparkles size={16} /> AI Engineering
+            </div>
+            <div className="hero-chip chip-devops">
+              <Server size={16} /> DevOps
             </div>
             <div className="hero-caption">
               Building software
@@ -585,7 +588,7 @@ function App() {
 
       <footer className="site-footer">
         <a className="brand" href="#landing">
-          <span className="brand-mark">AL</span>
+          <span className="brand-mark">LA</span>
           <span>
             Lokesh Adireddi<span className="brand-dot">.</span>
           </span>
