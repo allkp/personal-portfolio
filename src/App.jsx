@@ -38,6 +38,11 @@ import "./App.css";
 const iconMap = { Server, Code2, Sparkles, ShieldCheck, BriefcaseBusiness };
 
 // Prefix public asset paths with Vite's configured base path.
+const gmailComposeUrl = (subject = "") => {
+  const params = new URLSearchParams({ view: "cm", fs: "1", to: personalInfo.email });
+  if (subject) params.set("su", subject);
+  return `https://mail.google.com/mail/?${params.toString()}`;
+};
 const assetUrl = (path) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
@@ -195,11 +200,11 @@ function App() {
             <p className="hero-kicker">Hello, I’m</p>
             <h1>
               Lokesh
-              <br />
-              <span className="main-surname">Adireddi</span>
+              {/* <br /> */}
+              <span className="main-surname"> Adireddi</span>
             </h1>
             <p className="hero-role">
-              Java Full Stack Developer <span>·</span> Generative AI
+              Java Full Stack Developer <span>·</span> React <span>·</span> Generative AI <span>·</span> DevOps
             </p>
             <p className="hero-description">{landingIntro}</p>
             <p className="hero-quote">“Legacy systems, modern interfaces.”</p>
@@ -235,7 +240,7 @@ function App() {
               >
                 <Linkedin />
               </a>
-              <a href={`mailto:${personalInfo.email}`} aria-label="Email">
+              <a href={gmailComposeUrl()} target="_blank" rel="noopener noreferrer" aria-label="Email">
                 <Mail />
               </a>
               <span className="hero-location">
@@ -564,7 +569,7 @@ function App() {
                 tooling, and thoughtful product work.
               </p>
               <div className="contact-links">
-                <a href={`mailto:${personalInfo.email}`}>
+                <a href={gmailComposeUrl()} target="_blank" rel="noopener noreferrer">
                   <Mail size={18} />
                   {personalInfo.email}
                   <ArrowUpRight size={16} />
@@ -578,7 +583,7 @@ function App() {
             </div>
             <a
               className="button button-primary contact-cta"
-              href={`mailto:${personalInfo.email}?subject=Let%27s%20work%20together`}
+              href={gmailComposeUrl("Let's work together")} target="_blank" rel="noopener noreferrer"
             >
               Start a conversation <ArrowUpRight size={17} />
             </a>
@@ -611,7 +616,7 @@ function App() {
           >
             <Linkedin />
           </a>
-          <a href={`mailto:${personalInfo.email}`} aria-label="Email">
+          <a href={gmailComposeUrl()} target="_blank" rel="noopener noreferrer" aria-label="Email">
             <Mail />
           </a>
         </div>

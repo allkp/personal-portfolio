@@ -259,17 +259,17 @@
   box-shadow: var(--shadow-md);
 }
 .chip-top {
-  top: 54px;
-  right: 0;
+  top: 5px;
+  right: 75PX;
 }
 .chip-bottom {
-  bottom: 74px;
-  left: 0;
+  bottom: 75px;
+  left: 5PX;
 }
 .hero-caption {
   position: absolute;
-  bottom: 10px;
-  right: 2%;
+  bottom: 30px;
+  right: 5%;
   z-index: 2;
   color: var(--text-secondary);
   font-size: 0.78rem;
@@ -1295,8 +1295,8 @@ h3 {
 @media (max-width: 680px) { .hero-copy { grid-row: 2; } }
 
 .chip-devops {
-  top: 50%;
-  right: -8px;
+  top: 60%;
+  right: 48px;
   transform: translateY(-50%);
 }
 @media (max-width: 850px) { .chip-devops { right: 0; top: 47%; } }
@@ -1313,4 +1313,47 @@ h3 {
 @media (max-width: 680px) {
   .hero-visual { transform: none; }
 }
+
+
+/* Refined hero name typography */
+.hero h1 {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(3.8rem, 6.2vw, 6.25rem);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+}
+@media (max-width: 850px) {
+  .hero h1 { font-size: clamp(3.5rem, 8.5vw, 5.25rem); }
+}
+@media (max-width: 680px) {
+  .hero h1 { font-size: clamp(3.2rem, 13vw, 4.5rem); }
+}
+@media (max-width: 380px) {
+  .hero h1 { font-size: clamp(2.9rem, 13vw, 3.5rem); }
+}
+
+
+/* Further soften the hero name for a cleaner visual balance. */
+.hero h1 {
+  font-size: clamp(3.4rem, 5.2vw, 5.35rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+@media (max-width: 850px) { .hero h1 { font-size: clamp(3.25rem, 7.5vw, 4.8rem); } }
+@media (max-width: 680px) { .hero h1 { font-size: clamp(3rem, 12vw, 4rem); } }
+@media (max-width: 380px) { .hero h1 { font-size: clamp(2.7rem, 11vw, 3.2rem); } }
+
+
+/* Keep the hero name balanced with the role and intro, especially on phones. */
+.hero h1 {
+  font-size: clamp(3.2rem, 4.8vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+@media (max-width: 850px) { .hero h1 { font-size: clamp(3rem, 7vw, 4.35rem); } }
+@media (max-width: 680px) { .hero h1 { font-size: clamp(2.6rem, 10vw, 3.3rem); } }
+@media (max-width: 380px) { .hero h1 { font-size: clamp(2.45rem, 10vw, 2.9rem); } }
 
